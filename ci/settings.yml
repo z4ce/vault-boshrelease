@@ -18,7 +18,7 @@ meta:
   github:
     owner:  cloudfoundry-community
     repo:   vault-boshrelease
-    branch: master
+    branch: fix-ci
     private_key:  (( vault "secret/pipelines/vault-boshrelease/github:private" ))
     access_token: (( vault "secret/pipelines/vault-boshrelease/github:token" ))
 
