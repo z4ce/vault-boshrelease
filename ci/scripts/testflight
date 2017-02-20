@@ -53,7 +53,7 @@ bosh -n deploy
 bosh -n instances
 
 header "Initialize and unseal vault"
-export VAULT_ADDR=http://10.244.9.3:8200
+export VAULT_ADDR=http://10.244.8.3:8200
 seals_token=$(vault init)
 echo "seals token (below)"
 echo "$seals_token"
