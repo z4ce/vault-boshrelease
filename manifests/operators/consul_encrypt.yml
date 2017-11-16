@@ -1,0 +1,18 @@
+---
+# This operator should be applied to any new vault deployment
+# Without applying this rule anyone with network access
+# can join your console cluster
+# Unfortunately, it is not possible to retroactively apply an encryption key
+# because the consul bosh release doesn't yet support setting encrypt_verify_outgoing
+# to false. If at some point it does support this, see this url for details on
+# converting your existing cluster:
+# https://www.consul.io/docs/agent/encryption.html#configuring-gossip-encryption-on-an-existing-cluster
+- type: replace
+  path: /instance_groups/name=vault/jobs/name=consul/properties?/consul?/encrypt?
+  value: ((consul-encrypt-key))
+
+- type: replace
+  path: /variables/-
+  value:
+    name: consul-encrypt-key
+    type: password

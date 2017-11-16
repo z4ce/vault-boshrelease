@@ -27,7 +27,7 @@ export BOSH_DEPLOYMENT=vault
 
 git clone https://github.com/cloudfoundry-community/vault-boshrelease.git
 cd vault-boshrelease
-bosh deploy manifests/vault.yml --vars-store tmp/creds.yml
+bosh deploy manifests/vault.yml --vars-store tmp/creds.yml -o operators/consul_encrypt.yml
 ```
 
 If your BOSH has Credhub/Config Server, then you do not need `--vars-store`. Rather certificates/credentials will be generated and stored within Credhub. Subsequent instructions below will continue to use `--vars-store` examples.
